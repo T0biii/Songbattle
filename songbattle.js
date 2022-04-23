@@ -279,24 +279,3 @@ case -1: str+=""; break;
 
   return str;
 }
-
-export {
-  lstMember,
-  parent,
-  equal,
-  rec,
-  cmp1,
-  cmp2,
-  head1,
-  head2,
-  nrec,
-  numQuestion,
-  totalSize,
-  finishSize,
-  finishFlag,
-  toNameFace,
-  showImage,
-  showResult,
-  sortList,
-  initList,
-};
