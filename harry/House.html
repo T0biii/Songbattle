@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+
+    <script type="text/javascript">
+      var namMember = new Array(
+        "Music For a Sushi Restaurant",
+        "Late Night Talking",
+        "Grapejuice",
+	      "As It Was",
+	      "Daylight",
+	      "Little Freak",
+	      "Matilda",
+	      "Cinema",
+	      "Daydreaming",
+	      "Keep Driving",
+	      "Satellite",
+	      "Boyfriends",
+        "Love Of My Life"
+      );
+    </script>
+
+    <script type="text/javascript" src="../songbattle.js"></script>
+    <link rel="stylesheet" href="House.css" />
+
+    <meta http-equiv="x-dns-prefetch-control" content="off" />
+    <link
+      href="../assets/css/JosefinSlab.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body
+    text="#000000"
+    bgcolor="#ffffff"
+    link="#0099ff"
+    vlink="#0099ff"
+    alink="#0099ff"
+  >
+    <p class="instructions">
+      <center>
+        <br /><br />
+        Welcome to the Harry Styles album "Harry's House" song sorter!<br /><br />Pick what
+        song you like better in each battle to get an accurate list of your
+        favourite songs. <b>Note:</b> hitting 'no opinion' or 'I like both'
+        frequently will negatively affect your results.
+
+        <b>Note:</b> If you make a mistake <b>DO NOT</b> click backspace unless
+        you find extremely necessary. It will erase all your progress.
+        <br /><br />
+      </center>
+    </p>
+
+    <table id="mainTable" align="center">
+      <tbody>
+        <tr>
+          <td
+            id="battleNumber"
+            colspan="3"
+            style="padding-bottom: 10px"
+            style="text-align: center"
+          >
+            <b>Battle #1<br />0% sorted.</b>
+          </td>
+        </tr>
+
+        <tr>
+          <td
+            id="leftField"
+            onclick="if(finishFlag==0) sortList(-1);"
+            rowspan="2"
+            style="text-align: center"
+          ></td>
+
+          <td
+            class="middleField"
+            onclick="if(finishFlag==0) sortList(0);"
+            style="text-align: center"
+          >
+            I Like Both
+          </td>
+
+          <td
+            id="rightField"
+            onclick="if(finishFlag==0) sortList(1);"
+            rowspan="2"
+            style="text-align: center"
+          ></td>
+        </tr>
+
+        <tr>
+          <td
+            class="middleField"
+            onclick="if(finishFlag==0) sortList(0);"
+            style="text-align: center"
+          >
+            No Opinion
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br /><br />
+
+    <div id="resultField" style="text-align: center">
+      <br />
+    </div>
+
+    <script type="text/javascript">
+      //<!--
+
+      initList();
+
+      showImage();
+
+      //-->
+    </script>
+    <p class="other">
+      <center>
+        <small
+          ><br />
+          <p>
+            This page was made by
+            <a href="https://vielzunahdran.tumblr.com/">vielzunahdran</a>.<br />
+            This page inspired(stolen) from
+            <a href="https://jesseepinkman.tumblr.com/">jesseepinkman</a>.<br />
+            We stand with 🇺🇦
+          </p>
+        </small>
+      </center>
+    </p>
+  </body>
+</html>
