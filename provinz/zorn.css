@@ -1,9 +1,9 @@
 #mainTable{
-    font-size: 19px;
-    font-family: 'Josefin Slab', serif;
+    font-size: 21px;
+    font-family: 'belwe_bd_btbold';
     text-align: center;
     vertical-align: middle;
-    width: 410px;
+    width: 510px;
     margin-left: auto;
     margin-right: auto;
     border-collapse: separate;
@@ -11,7 +11,13 @@
 
     }
 
-    #leftField{
+.instructions {
+    font-size: 21px;
+    text-align: center;
+}
+
+
+#leftField{
     width: 120px;
     height: 150px;
     border: 1px solid #000;
@@ -19,37 +25,37 @@
 
     }
 
-    #rightField{
+#rightField{
     width: 120px;
     height: 150px;
     border: 1px solid #000;
     cursor: pointer;
 
-    }
+}
 
-    .middleField{
+.middleField{
     width: 120px;
     height: 70px;
     border: 1px solid #000;
     cursor: pointer;
 
-    }
+}
 
-    a{
+a{
     color: #5b17ba;
     text-decoration : none;
 
-    }
+}
 
-    a:hover{
+a:hover{
     color: #945ce3;
 
-    }
+}
 
-    body {
+body {
     width: 600px;
     margin: 0 auto;
-    font-family: 'Josefin Slab', erif;
-    background: #D8B194;
-    color: #000;
-    }
+    font-family: 'belwe_bd_btbold';
+    background: #EACE91;
+    color: #ED832F;
+}
