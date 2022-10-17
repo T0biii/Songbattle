@@ -215,7 +215,7 @@ function showResult() {
     '<table style="width:470px; font-size:18px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse" align="center">';
 
   str +=
-    '<tr><td style="color:#000; background-color:#c27e88; text-align:center;border:1px solid #000;">Rank</td><td style="color:#000; background-color:#c27e88; border:1px solid #000; text-align:center;">Song</td></tr>';
+    '<tr><td id="resultField-spaltenname" ">Rank</td><td id="resultField-spaltenname">Song</td></tr>';
 
   for (i = 0; i < namMember.length; i++) {
     str +=

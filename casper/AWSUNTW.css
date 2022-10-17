@@ -53,3 +53,11 @@
     background: #f29daa;
     color: #000;
     }
+
+    
+#resultField-spaltenname {
+    color:#000; 
+    background-color:#c27e88; 
+    text-align:center;
+    border:1px solid #000;
+}

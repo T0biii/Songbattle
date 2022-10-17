@@ -59,3 +59,11 @@ body {
     background: #EACE91;
     color: #ED832F;
 }
+
+
+#resultField-spaltenname {
+    color:#000; 
+    background-color:#ED832F; 
+    text-align:center;
+    border:1px solid #000;
+}
