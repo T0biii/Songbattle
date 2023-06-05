@@ -1,6 +1,6 @@
 #mainTable{
     font-size: 19px;
-    font-family: 'Josefin Slab', serif;
+    font-family: neue-haas-unica,Arial;
     text-align: center;
     vertical-align: middle;
     width: 410px;
@@ -49,8 +49,8 @@
     body {
     width: 600px;
     margin: 0 auto;
-    font-family: 'Josefin Slab', erif;
-    background: #D8B194;
+    font-family: neue-haas-unica,Arial;
+    background: #F0DED1;
     color: #000;
     }
 
