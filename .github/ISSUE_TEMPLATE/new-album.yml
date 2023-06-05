@@ -7,26 +7,19 @@ assignees:
 body:
   - type: markdown
     attributes:
-      value: |
-        Suggest a new Artist for Songbattle.app
-  - type: textarea
-    id: Artist
+      value: "Suggest a new Artist for Songbattle.app"
+  - type: input
     attributes:
       label: "Artist name?"
-      placeholder: "here goes the Artist name"
     validations:
       required: true
- - type: textarea
-    id: Album
+ - type: input
     attributes:
       label: "Album name?"
-      placeholder: "here goes the Album name"
     validations:
       required: true
- - type: textarea
-    id: Link
+ - type: input
     attributes:
       label: "Linkt to Album"
-      placeholder: "here goes the link to the Album"
     validations:
       required: false
