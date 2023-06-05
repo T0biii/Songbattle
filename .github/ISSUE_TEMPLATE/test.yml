@@ -15,3 +15,15 @@ body:
       label: Artist name
     validations:
       required: true
+  - type: input
+    id: album
+    attributes:
+      label: Album name
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Linkt to Album"
+    validations:
+      required: true
