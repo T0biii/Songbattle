@@ -1,5 +1,5 @@
 name: New Album
-description: "Suggest a new Album"
+description: Suggest a new Album
 title: "[NEW] Album"
 labels: ["enhancement"]
 assignees:
@@ -7,19 +7,23 @@ assignees:
 body:
   - type: markdown
     attributes:
-      value: "Suggest a new Artist for Songbattle.app"
+      value: |
+        Suggest a new Artist for Songbattle.app
   - type: input
+    id: artist
     attributes:
-      label: "Artist name?"
+      label: Artist name
     validations:
       required: true
- - type: input
+  - type: input
+    id: album
     attributes:
-      label: "Album name?"
+      label: Album name
     validations:
       required: true
- - type: input
+  - type: input
+    id: link
     attributes:
-      label: "Linkt to Album"
+      label: Linkt to Album"
     validations:
-      required: false
+      required: true
