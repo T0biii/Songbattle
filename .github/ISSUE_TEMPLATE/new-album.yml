@@ -1,5 +1,5 @@
-name: New Album
-description: Suggest a new Album 
+name: "New Album"
+description: "Suggest a new Album"
 title: "[NEW] Album"
 labels: ["enhancement"]
 assignees:
@@ -12,21 +12,21 @@ body:
   - type: textarea
     id: Artist
     attributes:
-      label: Artist name?
-      placeholder: here goes the Artist name
+      label: "Artist name?"
+      placeholder: "here goes the Artist name"
     validations:
       required: true
  - type: textarea
     id: Album
     attributes:
-      label: Album name?
-      placeholder: here goes the Album name
+      label: "Album name?"
+      placeholder: "here goes the Album name"
     validations:
       required: true
  - type: textarea
-    id: Spotify Link to Album
+    id: Link
     attributes:
-      label: Linkt to Album
-      placeholder: here goes the link to the Album
+      label: "Linkt to Album"
+      placeholder: "here goes the link to the Album"
     validations:
       required: false
