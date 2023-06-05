@@ -1,9 +1,9 @@
 name: New Album
 description: Suggest a new Album
-title: "[NEW] Album "
-labels: ["bug"]
+title: "[NEW] Album"
+labels: ["enhancement"]
 assignees:
-  - octocat
+  - T0biiii
 body:
   - type: markdown
     attributes:
