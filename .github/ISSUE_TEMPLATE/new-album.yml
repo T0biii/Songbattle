@@ -24,6 +24,6 @@ body:
   - type: input
     id: link
     attributes:
-      label: Linkt to Album"
+      label: Link to Album
     validations:
       required: true
