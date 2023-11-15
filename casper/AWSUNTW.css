@@ -46,7 +46,11 @@
 
     }
 
-
+    body {
+    font-family: 'Josefin Slab', erif;
+    background: #f29daa;
+    color: #000;
+    }
 
     
 #resultField-spaltenname {
