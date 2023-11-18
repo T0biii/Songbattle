@@ -22,7 +22,7 @@ function initList() {
   //The sequence that you should sort
 
   lstMember[n] = new Array();
-  for (i = 0; i < namMember.length; i++) {
+  for (i = 0; i < tracklist.length; i++) {
     lstMember[n][i] = i;
   }
 
@@ -50,7 +50,7 @@ function initList() {
   }
 
   //Preserve this sequence
-  for (i = 0; i < namMember.length; i++) {
+  for (i = 0; i < tracklist.length; i++) {
     rec[i] = 0;
   }
 
@@ -58,7 +58,7 @@ function initList() {
 
   //List that keeps your results
   //Value of link initial
-  for (i = 0; i <= namMember.length; i++) {
+  for (i = 0; i <= tracklist.length; i++) {
     equal[i] = -1;
   }
 
@@ -176,7 +176,7 @@ function sortList(flag) {
     //Initialize the rec before performing the new comparison
 
     if (head1 == 0 && head2 == 0) {
-      for (i = 0; i < namMember.length; i++) {
+      for (i = 0; i < tracklist.length; i++) {
         rec[i] = 0;
       }
       nrec = 0;
@@ -217,15 +217,15 @@ function showResult() {
   str +=
     '<tr><td id="resultField-spaltenname" ">Rank</td><td id="resultField-spaltenname">Song</td></tr>';
 
-  for (i = 0; i < namMember.length; i++) {
+  for (i = 0; i < tracklist.length; i++) {
     str +=
       '<tr><td style="border:1px solid #000; text-align:center; padding-right:5px;">' +
       ranking +
       '</td><td style="border:1px solid #000; padding-left:5px;">' +
-      namMember[lstMember[0][i]] +
+      tracklist[lstMember[0][i]] +
       "</td></tr>";
 
-    if (i < namMember.length - 1) {
+    if (i < tracklist.length - 1) {
       if (equal[lstMember[0][i]] == lstMember[0][i + 1]) {
         sameRank++;
       } else {
@@ -263,7 +263,7 @@ function showImage() {
 //Convert numeric value into a name (emoticon)+++++++++++++++++++++++++++++++
 
 function toNameFace(n) {
-  var str = namMember[n];
+  var str = tracklist[n];
 
   /*
 
