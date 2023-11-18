@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="main.css" href="../assets/css/stylesheet" />
+    <link rel="icon" href="../assets/favicon/favicon.ico" sizes="any" />
+    <!-- 32×32 -->
+    <link
+      rel="apple-touch-icon"
+      href="../assets/favicon/apple-touch-icon.png"
+    />
+    <!-- 180×180 -->
+    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AWSUNTW</title>
+
+    <script type="text/javascript">
+      var namMember = new Array(
+        "Alles War Schön Und Nichts Tat Weh",
+        "Lass Es Rosen Für Mich Regnen (feat. Provinz & Lena)",
+        "TNT (feat. Tua)",
+        "Billie Jo",
+        "Zwiebel & Mett (Die Vergessenen Pt 3)",
+        "Das Bisschen Regen (Die Vergessenen Pt 4)",
+        "Wo Warst Du?",
+        "Mieses Leben / Wolken (feat. Haiyti)",
+        "Gib Mir Gefahr (feat. Felix Brummer)",
+        "Euphoria (feat. Teute)",
+        "Fabian"
+      );
+    </script>
+
+    <script type="text/javascript" src="../songbattle2.js"></script>
+    <link href="NLI.css" rel="stylesheet" />
+
+    <meta http-equiv="x-dns-prefetch-control" content="off" />
+    <link
+      href="../assets/css/JosefinSlab.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <div class="text-center container my-5">
+      <p>
+        Welcome to the <a href="https://casperxo.com/">Casper</a> album "nur
+        liebe, immer" song sorter!<br /><br />
+        Pick what song you like better in each battle to get an accurate list of
+        your favourite songs. <b>Note:</b> hitting 'no opinion' or 'I like both'
+        frequently will negatively affect your results.
+      </p>
+    </div>
+    <table id="mainTable" align="center">
+      <tbody>
+        <tr>
+          <td
+            id="battleNumber"
+            colspan="3"
+            style="padding-bottom: 10px"
+            style="text-align: center"
+          >
+            <b>Battle #1<br />0% sorted.</b>
+          </td>
+        </tr>
+
+        <tr>
+          <td
+            id="leftField"
+            onclick="if(finishFlag==0) sortList(-1);"
+            rowspan="2"
+            style="text-align: center"
+          ></td>
+
+          <td
+            class="middleField"
+            onclick="if(finishFlag==0) sortList(0);"
+            style="text-align: center"
+          >
+            I Like Both
+          </td>
+
+          <td
+            id="rightField"
+            onclick="if(finishFlag==0) sortList(1);"
+            rowspan="2"
+            style="text-align: center"
+          ></td>
+        </tr>
+
+        <tr>
+          <td
+            class="middleField"
+            onclick="if(finishFlag==0) sortList(0);"
+            style="text-align: center"
+          >
+            No Opinion
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div
+      class="container my-5"
+      id="resultField"
+      style="text-align: center"
+    ></div>
+
+    <script type="text/javascript">
+      //<!--
+
+      initList();
+
+      showImage();
+
+      //-->
+    </script>
+
+    <div class="text-center container my-5">
+      <p>
+        <b>Note:</b> If you make a mistake <b>DO NOT</b> click backspace unless
+        you find extremely necessary. It will erase all your progress.
+      </p>
+    </div>
+
+    <footer class="text-center">
+      <small>
+        <p>
+          Request more
+          <a href="https://github.com/T0biii/Songbattle/issues">here</a>.
+          <br />
+          This page inspired(stolen) from
+          <a href="https://jesseepinkman.tumblr.com/">jesseepinkman</a>.
+          <br />
+          We stand with 🇺🇦
+        </p>
+      </small>
+    </footer>
+  </body>
+</html>
