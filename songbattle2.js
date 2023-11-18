@@ -238,6 +238,8 @@ function showResult() {
   str += "</table>";
 
   document.getElementById("resultField").innerHTML = str;
+  document.getElementById("mainTable").classList.add("d-none");
+
 }
 
 //Indicates two elements to compare+++++++++++++++++++++++++++++++++++
