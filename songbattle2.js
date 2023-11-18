@@ -212,7 +212,7 @@ function showResult() {
   var i;
 
   str +=
-    '<table style="width:470px; font-size:18px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse" align="center">';
+    '<table style="font-size:18px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse" align="center">';
 
   str +=
     '<tr><td id="resultField-spaltenname" ">Rank</td><td id="resultField-spaltenname">Song</td></tr>';
