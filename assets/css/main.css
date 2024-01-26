@@ -50,3 +50,10 @@
         text-align:center;
         border:1px solid #000;
     }       
+
+    .no-select {
+        user-select: none; /* Standard */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        -webkit-user-select: none; /* Safari */
+      }
