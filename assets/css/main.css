@@ -57,6 +57,13 @@
         -ms-user-select: none; /* Internet Explorer/Edge */
         -webkit-user-select: none; /* Safari */
     }
+    .no-select:hover{
+        color: inherit;
+        opacity: .5;
+        text-decoration: inherit;
+        transition-duration: .2s;
+        
+    }
 
     .socials { cursor: default; 
         color: black; 
