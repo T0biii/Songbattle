@@ -14,6 +14,12 @@ var finishFlag;
 
 //The initialization of the variable+++++++++++++++++++++++++++++++++++++++++++++
 
+function setCount(text) {
+  countstr = text + tracklist.length
+  document.getElementById("songs-count").innerHTML = countstr;
+}
+
+
 function initList() {
   var n = 0;
   var mid;
