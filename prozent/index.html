@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prozentrechner</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../assets/css/bs/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/bs-icons/font/bootstrap-icons.min.css" />
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/favicon/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+    <style>
+        /* Rahmen um jede Frage-Antwort-Gruppe */
+        .form-group {
+            border: 1px solid #ddd; /* Grauer Rahmen */
+            border-radius: 5px; /* Abgerundete Ecken */
+            padding: 15px; /* Innenabstand */
+            margin-bottom: 20px; /* Abstand nach unten */
+            background-color: #f9f9f9; /* Hintergrundfarbe für bessere Sichtbarkeit */
+        }
+
+        /* Verhindert Umbrüche innerhalb der Labels */
+        .form-label {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; /* Zeilenumbruch innerhalb der flexbox erlauben, wenn nötig */
+            gap: 5px; /* Abstand zwischen den Elementen */
+        }
+        
+        /* Eingabefelder und Buttons in einer Reihe */
+        .form-label input,
+        .form-label select,
+        .form-label button {
+            margin-right: 5px; /* Kleiner Abstand zwischen den Elementen */
+        }
+
+        /* Stellt sicher, dass die Eingabefelder und Buttons nicht zu groß werden */
+        .form-control,
+        .form-select {
+            width: auto; /* Verhindert, dass sie die ganze Breite einnehmen */
+            display: inline-block;
+        }
+
+        /* Verhindert, dass die Formeln umgebrochen werden */
+        .form-label span {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Prozentrechner <i class="bi bi-calculator-fill"></i></h1>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form id="prozent-form">
+                    <!-- 1. Wie viel sind x% von x? -->
+                    <div class="form-group">
+                        <label for="feld1-1" class="form-label">Wie viel sind 
+                            <input type="number" class="form-control d-inline w-auto" id="feld1-1" value="25"> % von 
+                            <input type="number" class="form-control d-inline w-auto" id="feld1-2" value="200">?
+                            <button type="button" class="btn btn-primary" onclick="berechne1()">Berechnen</button>
+                        </label>
+                        <p id="ergebnis1" class="mt-2 fw-bold"></p>
+                    </div>
+                    <!-- 2. Wie viele % sind x von x? -->
+                    <div class="form-group">
+                        <label for="feld2-1" class="form-label">Wie viele % sind 
+                            <input type="number" class="form-control d-inline w-auto" id="feld2-1" value="50"> von 
+                            <input type="number" class="form-control d-inline w-auto" id="feld2-2" value="200">?
+                            <button type="button" class="btn btn-primary" onclick="berechne2()">Berechnen</button>
+                        </label>
+                        <p id="ergebnis2" class="mt-2 fw-bold"></p>
+                    </div>
+                    <!-- 3. Von x zu x sind wie viel %? -->
+                    <div class="form-group">
+                        <label for="feld3-1" class="form-label">
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                            Von
+                            <input type="number" class="form-control d-inline w-auto" id="feld3-1" value="200"> zu 
+                            <input type="number" class="form-control d-inline w-auto" id="feld3-2" value="50"> sind wie viel %?
+                            <button type="button" class="btn btn-primary" onclick="berechne3()">Berechnen</button>
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                        </label>
+                        <p id="ergebnis3" class="mt-2 fw-bold"></p>
+                    </div>
+                    <!-- 4. Wie viel sind x minus/plus x%? -->
+                    <div class="form-group">
+                        <label for="feld4-1" class="form-label">
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                            Wie viel sind 
+                            <input type="number" class="form-control d-inline w-auto" id="feld4-1" placeholder="x"> 
+                            <select class="form-select d-inline w-auto" id="feld4-2">
+                                <option value="plus">plus</option>
+                                <option value="minus">minus</option>
+                            </select>
+                            <input type="number" class="form-control d-inline w-auto" id="feld4-3" placeholder="x"> %?
+                            <button type="button" class="btn btn-primary" onclick="berechne4()">Berechnen</button>
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                        </label>
+                        <p id="ergebnis4" class="mt-2 fw-bold"></p>
+                    </div>
+                    <!-- 5. Mehrwertsteuer: x € minus/plus x% Mwst -->
+                    <div class="form-group">
+                        <label for="feld5-1" class="form-label">
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                            Mehrwertsteuer: 
+                            <input type="number" class="form-control d-inline w-auto" id="feld5-1" placeholder="x"> € 
+                            <select class="form-select d-inline w-auto" id="feld5-2">
+                                <option value="plus">plus</option>
+                                <option value="minus">minus</option>
+                            </select>
+                            <input type="number" class="form-control d-inline w-auto" id="feld5-3" placeholder="x"> % MwSt
+                            <button type="button" class="btn btn-primary" onclick="berechne5()">Berechnen</button>
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                        </label>
+                        <p id="ergebnis5" class="mt-2 fw-bold"></p>
+                    </div>
+                    <!-- 6. x sind x% von wie viel? -->
+                    <div class="form-group">
+                        <label for="feld6-1" class="form-label">
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                            <input type="number" class="form-control d-inline w-auto" id="feld6-1" placeholder="x"> sind 
+                            <input type="number" class="form-control d-inline w-auto" id="feld6-2" placeholder="x"> % von wie viel?
+                            <button type="button" class="btn btn-primary" onclick="berechne6()">Berechnen</button>
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                        </label>
+                        <p id="ergebnis6" class="mt-2 fw-bold"></p>
+                    </div>
+                    <!-- 7. x sind x% mehr/weniger als wie viel? -->
+                    <div class="form-group">
+                        <label for="feld7-1" class="form-label">
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                            <input type="number" class="form-control d-inline w-auto" id="feld7-1" placeholder="x"> sind 
+                            <input type="number" class="form-control d-inline w-auto" id="feld7-2" placeholder="x"> % 
+                            <select class="form-select d-inline w-auto" id="feld7-3">
+                                <option value="mehr">mehr</option>
+                                <option value="weniger">weniger</option>
+                            </select> als wie viel?
+                            <button type="button" class="btn btn-primary" onclick="berechne7()">Berechnen</button>
+                            <i class="bi bi-patch-exclamation-fill"></i>
+                        </label>
+                        <p id="ergebnis7" class="mt-2 fw-bold"></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+        
+    <script>
+        // 1. Wie viel sind x% von x?
+        function berechne1() {
+            const x1 = parseFloat(document.getElementById('feld1-1').value);
+            const x2 = parseFloat(document.getElementById('feld1-2').value);
+            if (!isNaN(x1) && !isNaN(x2)) {
+                const ergebnis = (x1 / 100) * x2;
+                document.getElementById('ergebnis1').innerText = `Ergebnis: ${formatErgebnis(ergebnis)}`;
+            } else {
+                document.getElementById('ergebnis1').innerText = 'Bitte gültige Zahlen eingeben.';
+            }
+        }
+
+        // 2. Wie viele % sind x von x?
+        function berechne2() {
+            const x1 = parseFloat(document.getElementById('feld2-1').value);
+            const x2 = parseFloat(document.getElementById('feld2-2').value);
+            if (!isNaN(x1) && !isNaN(x2) && x2 !== 0) {
+                const ergebnis = (x1 / x2) * 100;
+                document.getElementById('ergebnis2').innerText = `Ergebnis: ${formatErgebnis(ergebnis)}`;
+            } else {
+                document.getElementById('ergebnis2').innerText = 'Bitte gültige Zahlen eingeben.';
+            }
+        }
+
+        // 3. Von x zu x sind wie viel %?
+        function berechne3() {
+            const x1 = parseFloat(document.getElementById('feld3-1').value);
+            const x2 = parseFloat(document.getElementById('feld3-2').value);
+            if (!isNaN(x1) && !isNaN(x2) && x1 !== 0) {
+                const ergebnis = ((x2 - x1) / x1) * 100;
+                document.getElementById('ergebnis3').innerText = `Ergebnis: ${formatErgebnis(ergebnis)}`;
+            } else {
+                document.getElementById('ergebnis3').innerText = 'Bitte gültige Zahlen eingeben.';
+            }
+        }
+
+        // 4. Wie viel sind x minus/plus x%?
+        function berechne4() {
+            const x1 = parseFloat(document.getElementById('feld4-1').value);
+            const operation = document.getElementById('feld4-2').value;
+            const x2 = parseFloat(document.getElementById('feld4-3').value);
+            if (!isNaN(x1) && !isNaN(x2)) {
+                let ergebnis;
+                if (operation === "plus") {
+                    ergebnis = x1 + (x1 * (x2 / 100));
+                } else {
+                    ergebnis = x1 - (x1 * (x2 / 100));
+                }
+                document.getElementById('ergebnis4').innerText = `Ergebnis: ${formatErgebnis(ergebnis)}`;
+            } else {
+                document.getElementById('ergebnis4').innerText = 'Bitte gültige Zahlen eingeben.';
+            }
+        }
+
+        // 5. Mehrwertsteuer: x € minus/plus x% Mwst
+        function berechne5() {
+            const x1 = parseFloat(document.getElementById('feld5-1').value);
+            const operation = document.getElementById('feld5-2').value;
+            const x2 = parseFloat(document.getElementById('feld5-3').value);
+            if (!isNaN(x1) && !isNaN(x2)) {
+                let ergebnis;
+                if (operation === "plus") {
+                    ergebnis = x1 + (x1 * (x2 / 100));
+                } else {
+                    ergebnis = x1 / (1 + (x2 / 100));
+                }
+                document.getElementById('ergebnis5').innerText = `Ergebnis: ${formatErgebnis(ergebnis)} €`;
+            } else {
+                document.getElementById('ergebnis5').innerText = 'Bitte gültige Zahlen eingeben.';
+            }
+        }
+
+        // 6. x sind x% von wie viel?
+        function berechne6() {
+            const x1 = parseFloat(document.getElementById('feld6-1').value);
+            const x2 = parseFloat(document.getElementById('feld6-2').value);
+            if (!isNaN(x1) && !isNaN(x2) && x2 !== 0) {
+                const ergebnis = x1 / (x2 / 100);
+                document.getElementById('ergebnis6').innerText = `Ergebnis: ${formatErgebnis(ergebnis)}`;
+            } else {
+                document.getElementById('ergebnis6').innerText = 'Bitte gültige Zahlen eingeben.';
+            }
+        }
+
+        // 7. x sind x% mehr/weniger als wie viel?
+        function berechne7() {
+            const x1 = parseFloat(document.getElementById('feld7-1').value);
+            const x2 = parseFloat(document.getElementById('feld7-2').value);
+            const operation = document.getElementById('feld7-3').value;
+            if (!isNaN(x1) && !isNaN(x2)) {
+                let ergebnis;
+                if (operation === "mehr") {
+                    ergebnis = x1 / (1 + (x2 / 100));
+                } else {
+                    ergebnis = x1 / (1 - (x2 / 100));
+                }
+                document.getElementById('ergebnis7').innerText = `Ergebnis: ${formatErgebnis(ergebnis)}`;
+            } else {
+                document.getElementById('ergebnis7').innerText = 'Bitte gültige Zahlen eingeben.';
+            }
+        }
+
+        function formatErgebnis(ergebnis) {
+            // Ergebnis auf 5 Nachkommastellen formatieren
+            const exakt = parseFloat(ergebnis.toFixed(5)); // Entfernen von unnötigen Nullen
+            // Ergebnis auf 2 Nachkommastellen formatieren
+            const gerundet = parseFloat(ergebnis.toFixed(2)); // Entfernen von unnötigen Nullen
+
+            // Überprüfen, ob das gerundete Ergebnis vom exakten Ergebnis abweicht
+            if (gerundet !== exakt) {
+                // Zeige das exakte Ergebnis und das gerundete Ergebnis an, falls sie unterschiedlich sind
+                return `${exakt} % (gerundet: ${gerundet} %)`;
+            } else {
+                // Zeige nur das exakte Ergebnis an
+                return `${exakt} %`;
+            }
+        }
+    </script>
+</body>
+</html>
