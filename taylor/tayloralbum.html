@@ -54,7 +54,7 @@
     <p>
       Welcome to the <a href="https://www.taylorswift.com/">Taylor Swift</a> album sorter!<br /><br />
       Pick what album you like better in each battle to get an accurate list of
-      your favourite album. <b>Note:</b> hitting 'no opinion' or 'I like both'
+      your favourite albums. <b>Note:</b> hitting 'no opinion' or 'I like both'
       frequently will negatively affect your results.
     </p>
   </div>
@@ -114,21 +114,14 @@
     style="text-align: center"
   ></div>
 
-  <script type="text/javascript">
-    //<!--
 
-    initList();
-
-    showImage();
-
-    //-->
-  </script>
 
   <div class="text-center container my-5">
     <p>
       <b>Note:</b> If you make a mistake <b>DO NOT</b> click backspace unless
       you find extremely necessary. It will erase all your progress.
     </p>
+    <p id="songs-count" /></p>
   </div>
 
   <div class="text-center container my-5">
@@ -153,5 +146,15 @@
       </p>
     </small>
   </footer>
+
+  <script type="text/javascript">
+    //<!--
+
+    initList();
+    setCount("Total Albums Competing: ");
+    showImage();
+
+    //-->
+  </script>
 </body>
 </html>
