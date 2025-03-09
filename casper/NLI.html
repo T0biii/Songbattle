@@ -1,32 +1,133 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="de">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <meta http-equiv="Content-Script-Type" content="text/javascript" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="x-dns-prefetch-control" content="off" />
-
-    <!-- CSS-->
-    <link rel="stylesheet" href="../assets/css/bs/bootstrap.min.css" />
-    <link rel="stylesheet" href="../assets/css/bs-icons/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
-    <!-- prettier-ignore -->
-    <link  rel="stylesheet" href="../assets/css/JosefinSlab.css" type="text/css"/>
-    <!-- Favicon-->
-    <link rel="icon" href="../assets/favicon/favicon.ico" sizes="any" />
-    <!-- prettier-ignore -->
-    <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
-    <!-- JS-->
-    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../songbattle2.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Casper - nur liebe, immer - Song Sorter">
     
-    <!-- Custom-->
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/bs/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bs-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/JosefinSlab.css">
+    <link rel="stylesheet" href="NLI.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    
+    <!-- JS -->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../songbattle2.js"></script>
+    
     <title>Casper - nur liebe, immer</title>
+  </head>
+
+  <body class="bg-dark">
+    <div class="container py-5">
+      <header class="text-center mb-5">
+        <h1 class="display-1 text-white mb-4 font-josefin">Casper - nur liebe, immer</h1>
+        <p class="lead text-white-50">
+          Welcome to the <a href="https://casperxo.com/" class="text-decoration-none text-white">Casper</a> album "nur liebe, immer" song sorter!
+        </p>
+        <p class="text-white-50">
+          Pick what song you like better in each battle to get an accurate list of your favourite songs.
+          <br>
+          <span class="text-warning">⚠ Note:</span> hitting 'no opinion' or 'I like both' frequently will negatively affect your results.
+        </p>
+      </header>
+
+      <main class="mx-auto" style="max-width: 800px;">
+        <div class="battle-container">
+          <div class="text-center text-white mb-4" id="battleNumber">
+            <h2 class="h5 mb-0">Battle #1<br>0% sorted.</h2>
+          </div>
+          <div class="row g-3 align-items-center justify-content-center">
+            <div class="col-4">
+              <div id="leftField" class="battle-option d-flex align-items-center justify-content-center" onclick="if(finishFlag==0) sortList(-1);">
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="d-grid gap-2">
+                <button class="btn battle-btn" onclick="if(finishFlag==0) sortList(0);">I Like Both</button>
+                <button class="btn battle-btn" onclick="if(finishFlag==0) sortList(0);">No Opinion</button>
+              </div>
+            </div>
+            <div class="col-4">
+              <div id="rightField" class="battle-option d-flex align-items-center justify-content-center" onclick="if(finishFlag==0) sortList(1);">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="resultField" class="text-center text-white mb-4"></div>
+        
+        <div class="alert alert-custom">
+          <i class="bi bi-info-circle"></i>
+          If you make a mistake <strong>DO NOT</strong> click backspace unless extremely necessary. It will erase all your progress.
+        </div>
+        
+        <p id="songs-count" class="text-center text-white-50"></p>
+      </main>
+
+      <footer class="text-center mt-5">
+        <p class="text-white-50">
+          <a href="https://github.com/T0biii/Songbattle/issues" class="text-decoration-none text-white-50">Request more</a> |
+          Inspired by <a href="https://jesseepinkman.tumblr.com/" class="text-decoration-none text-white-50">jesseepinkman</a><br>
+          We stand with 🇺🇦
+        </p>
+      </footer>
+    </div>
+
+    <style>
+      body {
+        background-color: #1a1a1a !important;
+        font-family: 'Josefin Slab', serif;
+      }
+      .battle-container {
+        background: rgba(40, 40, 40, 0.5);
+        border-radius: 8px;
+        padding: 2rem;
+      }
+      .battle-option {
+        background: rgba(30, 30, 30, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        cursor: pointer;
+        min-height: 150px;
+        padding: 1.5rem;
+        font-size: 1.2rem;
+        color: #fff;
+      }
+      .battle-option:hover {
+        background: rgba(50, 50, 50, 0.9);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      .battle-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        padding: 0.75rem 2rem;
+        min-width: 180px;
+        font-size: 1.1rem;
+      }
+      .battle-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+      .alert-custom {
+        background: rgba(255, 243, 205, 0.1);
+        border: 1px solid rgba(255, 243, 205, 0.2);
+        color: #fff3cd;
+      }
+      a:hover {
+        color: #fff !important;
+      }
+    </style>
+
     <script type="text/javascript">
-      var tracklist = new Array(
+      var tracklist = [
         "echt von unten (feat. zoé freestyle)",
         "sowas von da (hellwach)",
         "sommer (feat. CRO)",
@@ -37,111 +138,11 @@
         "wimpernschlag",
         "luft holen",
         "verliebt in der stadt die es nicht gibt"
-      );
-    </script>
-    <link href="NLI.css" rel="stylesheet" />
-
-
-  </head>
-
-  <body>
-    <div class="text-center container my-5">
-      <p>
-        Welcome to the <a href="https://casperxo.com/">Casper</a> album "nur
-        liebe, immer" song sorter!<br /><br />
-        Pick what song you like better in each battle to get an accurate list of
-        your favourite songs. <b>Note:</b> hitting 'no opinion' or 'I like both'
-        frequently will negatively affect your results.
-      </p>
-    </div>
-    <table id="mainTable" align="center">
-      <tbody>
-        <tr>
-          <td
-            id="battleNumber"
-            colspan="3"
-            style="padding-bottom: 10px"
-            style="text-align: center"
-          >
-            <b>Battle #1<br />0% sorted.</b>
-          </td>
-        </tr>
-  
-        <tr>
-          <td
-            id="leftField"
-            class="no-select"
-            onclick="if(finishFlag==0) sortList(-1);"
-            rowspan="2"
-            style="text-align: center"
-          ></td>
-  
-          <td
-            class="middleField no-select"
-            onclick="if(finishFlag==0) sortList(0);"
-            style="text-align: center"
-          >
-            I Like Both
-          </td>
-  
-          <td
-            id="rightField"
-            class="no-select"
-            onclick="if(finishFlag==0) sortList(1);"
-            rowspan="2"
-            style="text-align: center"
-          ></td>
-        </tr>
-  
-        <tr>
-          <td
-            class="middleField no-select"
-            onclick="if(finishFlag==0) sortList(0);"
-            style="text-align: center"
-          >
-            No Opinion
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div
-      class="container my-5"
-      id="resultField"
-      style="text-align: center"
-    ></div>
-
-<div class="text-center container my-5">
-  <p>
-    <b>Note:</b> If you make a mistake <b>DO NOT</b> click backspace unless
-    you find extremely necessary. It will erase all your progress.
-  </p>
-  <p id="songs-count"></p>
-</div>
-
-
-    <footer class="text-center">
-      <small>
-        <p>
-          Request more
-          <a href="https://github.com/T0biii/Songbattle/issues">here</a>.
-          <br />
-          This page inspired(stolen) from
-          <a href="https://jesseepinkman.tumblr.com/">jesseepinkman</a>.
-          <br />
-          We stand with 🇺🇦
-        </p>
-      </small>
-    </footer>
-
-    
-    <script type="text/javascript">
-      //<!--
+      ];
 
       initList();
       setCount("Total Songs in the Battle: ");
       showImage();
-
-      //-->
     </script>
   </body>
 </html>
