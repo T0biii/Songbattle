@@ -170,30 +170,6 @@ footer a:hover {
   color: var(--accent-color);
 }
 
-/* Notification Banner */
-.notification-banner {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  text-align: center;
-  padding: 1rem 1.5rem;
-  position: relative;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.notification-banner a {
-  color: white;
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
-  transition: var(--transition);
-}
-
-.notification-banner a:hover {
-  text-decoration-color: rgba(255, 255, 255, 0.6);
-}
-
 /* Utilities */
 .flag-icon {
   font-style: normal;
